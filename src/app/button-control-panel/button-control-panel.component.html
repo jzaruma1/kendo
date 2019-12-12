@@ -1,0 +1,42 @@
+<div class="k-block">
+    <button kendoButton [look]='"default"'> default button</button>
+    <button kendoButton [look]='"outline"'> outline button</button>
+    <button kendoButton [look]='"bare"'> bare button</button>
+    <button kendoButton [disabled]="true"> button</button>
+    <button kendoButton [primary]="true"> Primary action</button>
+    <button kendoButton [togglable]="true"> Togglable action</button>
+</div>
+
+<kendo-buttongroup [width]="100" look='bare'>
+
+    <button kendoButton [icon]="'calendar'"> Icon action</button>
+    <button kendoButton [icon]="'user'"> Icon action</button>
+    <button kendoButton [icon]="'check'"> Icon action</button>
+</kendo-buttongroup>
+
+<div class="example-config">
+    <input id="ac" type="checkbox" [(ngModel)]="autoCorrect">
+    <label for="ac">Auto-correct value to be between min and max</label>
+</div>
+<kendo-numerictextbox (valueChange)="onChange($event)" (focus)="onFocus()" (blur)="onBlur()" [value]="value" [min]="0"
+    [max]="100" [autoCorrect]="autoCorrect">
+</kendo-numerictextbox>
+
+<div class="example-config">
+    <button #anchor (click)="onToggle()" class="k-button">{{toggleText}} Popup</button>
+</div>
+<kendo-popup [anchor]="anchor" (anchorViewportLeave)="show = false" *ngIf="show">
+    <div class='content'>
+        <!-- User-defined content -->
+        Popup content.
+    </div>
+</kendo-popup>
+
+<style>
+    .content {
+        padding: 30px;
+        color: #787878;
+        background-color: #fcf7f8;
+        border: 1px solid rgba(0, 0, 0, .05);
+    }
+</style>
